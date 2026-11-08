@@ -3,8 +3,6 @@ export interface Person {
   label: string; // "The Groom" / "The Bride"
   parents: { father: string; mother: string };
   residence: string;
-  photo: string;
-  photoAlt: string;
 }
 
 export interface Couple {
@@ -19,7 +17,20 @@ export interface Couple {
 
 export const weddingConfig = {
   blessing: 'Together With The Blessings of Allah',
-  title: 'A Double Wedding Celebration',
+  arabicBlessing: 'بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ',
+  title: 'Wedding Celebration',
+  verse: {
+    arabic: 'وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا',
+    english:
+      'And of His signs is that He created for you mates from among yourselves, that you may find tranquillity in them.',
+    ref: 'Surah Ar-Rum 30:21',
+  },
+  // Royalty-free Arabic wedding instrumental (Pixabay, ikoliks_aj). Streamed.
+  music: {
+    title: 'Royal Wedding',
+    artist: 'ikoliks_aj',
+    src: 'https://cdn.pixabay.com/audio/2025/08/26/audio_a3361500cb.mp3',
+  },
   couples: [
     {
       id: 'rishal-amana',
@@ -33,9 +44,6 @@ export const weddingConfig = {
         parents: { father: 'Mr. Abdul Razack M.', mother: 'Mrs. Shahidha T.' },
         residence:
           'Mundekkat (H), Tirur, Chembra, Meenadathur P.O., Malappuram, Kerala.',
-        photo:
-          'https://images.pexels.com/photos/33049965/pexels-photo-33049965.jpeg?auto=compress&cs=tinysrgb&h=1100&w=750',
-        photoAlt: 'Mohamed Rishal — Groom (placeholder portrait)',
       },
       personB: {
         name: 'Amana',
@@ -43,9 +51,6 @@ export const weddingConfig = {
         parents: { father: 'Mr. Abdul Majeed V.', mother: 'Mrs. Husnu Banu M.' },
         residence:
           'Vallil (H), Chellikkad, Tanur, Malappuram, Kerala.',
-        photo:
-          'https://images.pexels.com/photos/40641303/pexels-photo-40641303.jpeg?auto=compress&cs=tinysrgb&h=1100&w=750',
-        photoAlt: 'Amana — Bride (placeholder portrait)',
       },
     },
     {
@@ -60,9 +65,6 @@ export const weddingConfig = {
         parents: { father: 'Mr. Abdul Razack M.', mother: 'Mrs. Shahidha T.' },
         residence:
           'Mundekkat (H), Tirur, Chembra, Meenadathur P.O., Malappuram, Kerala.',
-        photo:
-          'https://images.pexels.com/photos/34250444/pexels-photo-34250444.jpeg?auto=compress&cs=tinysrgb&h=1100&w=750',
-        photoAlt: 'Rinsha Febin — Bride (placeholder portrait)',
       },
       personB: {
         name: 'Rafeeque',
@@ -70,9 +72,6 @@ export const weddingConfig = {
         parents: { father: 'Mr. Hussain C.', mother: 'Mrs. Ummu Kulsu I.P.' },
         residence:
           'Chatheri (H), Ovungal, Thalakkadathur P.O., Malappuram, Kerala.',
-        photo:
-          'https://images.pexels.com/photos/32379178/pexels-photo-32379178.jpeg?auto=compress&cs=tinysrgb&h=1100&w=750',
-        photoAlt: 'Rafeeque — Groom (placeholder portrait)',
       },
     },
   ] satisfies Couple[],
@@ -90,63 +89,11 @@ export const weddingConfig = {
     venueShort: 'Moochikal, Tirur, Kerala',
     mapsUrl:
       'https://www.google.com/maps?um=1&ie=UTF-8&fb=1&gl=in&sa=X&geocode=KZN0IfUFsqc7MdWLXwxIJdlS&daddr=Tanur+Road,+Moochikal,+Tirur,+Keralam+676307',
-    // Static venue photograph — real auditorium of Crown Convention Center (placeholder).
-    venuePhoto:
-      'https://images.pexels.com/photos/3866658/pexels-photo-3866658.jpeg?auto=compress&cs=tinysrgb&h=900&w=1400',
-    venuePhotoAlt: 'Crown Convention Center auditorium (placeholder)',
   },
   invitationMessage: [
-    'With the blessings of Allah and the love of our families, we invite you to join us in celebrating these two beautiful beginnings.',
-    'Your presence and blessings will make our celebration truly special.',
+    'With the blessings of Allah and the love of our families, we invite you to celebrate these two marriages — two unions, one blessing.',
+    'Your presence and your duas will complete our joy.',
   ],
-  // Replaced when real photographs are uploaded.
-  gallery: [
-    {
-      src: 'https://images.pexels.com/photos/27635496/pexels-photo-27635496.jpeg?auto=compress&cs=tinysrgb&h=900&w=1300',
-      alt: 'Wedding ceremony floral decor',
-      span: 'tall',
-    },
-    {
-      src: 'https://images.pexels.com/photos/26990489/pexels-photo-26990489.jpeg?auto=compress&cs=tinysrgb&h=800&w=1100',
-      alt: 'South Asian couple celebrating',
-      span: 'wide',
-    },
-    {
-      src: 'https://images.pexels.com/photos/35069916/pexels-photo-35069916.jpeg?auto=compress&cs=tinysrgb&h=1100&w=800',
-      alt: 'Indian couple in traditional attire',
-      span: 'normal',
-    },
-    {
-      src: 'https://images.pexels.com/photos/13156145/pexels-photo-13156145.jpeg?auto=compress&cs=tinysrgb&h=800&w=1200',
-      alt: 'Luxurious wedding stage with floral arch',
-      span: 'wide',
-    },
-    {
-      src: 'https://images.pexels.com/photos/38781130/pexels-photo-38781130.jpeg?auto=compress&cs=tinysrgb&h=1100&w=800',
-      alt: 'Indian couple wedding moment',
-      span: 'tall',
-    },
-    {
-      src: 'https://images.pexels.com/photos/27865553/pexels-photo-27865553.jpeg?auto=compress&cs=tinysrgb&h=800&w=1100',
-      alt: 'Joyful couple with floral decor',
-      span: 'normal',
-    },
-    {
-      src: 'https://images.pexels.com/photos/28411910/pexels-photo-28411910.jpeg?auto=compress&cs=tinysrgb&h=1100&w=800',
-      alt: 'South Asian couple celebrating love',
-      span: 'tall',
-    },
-    {
-      src: 'https://images.pexels.com/photos/32495457/pexels-photo-32495457.jpeg?auto=compress&cs=tinysrgb&h=1100&w=800',
-      alt: 'Bride and groom under veil',
-      span: 'normal',
-    },
-    {
-      src: 'https://images.pexels.com/photos/27635420/pexels-photo-27635420.jpeg?auto=compress&cs=tinysrgb&h=800&w=1200',
-      alt: 'Adorned Indian couple traditional attire',
-      span: 'wide',
-    },
-  ] as { src: string; alt: string; span: 'normal' | 'tall' | 'wide' }[],
   // Update after deployment to the live URL.
   siteUrl: 'https://double-wedding-rishal-amana-rinsha-rafeeque.app',
 };

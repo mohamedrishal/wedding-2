@@ -14,8 +14,8 @@ export function QRCodeImage({
   value,
   size = 160,
   className = '',
-  dark = '#0a1f44',
-  light = '#fbfaf6',
+  dark = '#28215F',
+  light = '#FFFFFF',
 }: QRProps) {
   const ref = useRef<HTMLCanvasElement>(null);
   const [dataUrl, setDataUrl] = useState<string>('');

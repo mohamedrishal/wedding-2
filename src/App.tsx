@@ -1,14 +1,12 @@
 import { useState, useEffect } from 'react';
 import { OpeningScreen } from '@/components/OpeningScreen';
-import { Navigation } from '@/components/Navigation';
 import { Hero } from '@/components/Hero';
 import { CoupleSection } from '@/components/CoupleSection';
 import { Countdown } from '@/components/Countdown';
 import { EventDetails } from '@/components/EventDetails';
 import { Venue } from '@/components/Venue';
-import { Gallery } from '@/components/Gallery';
 import { Invitation, Footer } from '@/components/Invitation';
-import { SideFloralBorders } from '@/components/decorations';
+import { IslamicMusic } from '@/components/IslamicMusic';
 import { weddingConfig } from '@/config/wedding';
 
 function App() {
@@ -22,14 +20,13 @@ function App() {
   }, [opened]);
 
   return (
-    <div className="relative min-h-screen body-texture">
+    <div className="relative min-h-screen bg-white">
       <OpeningScreen onOpen={() => setOpened(true)} />
 
       {opened && (
-        <>
-          <SideFloralBorders />
-          <Navigation />
-          <main>
+        <div className="card-frame relative min-h-screen">
+          <IslamicMusic />
+          <main className="relative z-10 px-10 sm:px-16 md:px-24">
             <Hero />
             {weddingConfig.couples.map((c, i) => (
               <CoupleSection key={c.id} couple={c} index={i} />
@@ -37,11 +34,10 @@ function App() {
             <Countdown />
             <EventDetails />
             <Venue />
-            <Gallery />
             <Invitation />
           </main>
           <Footer />
-        </>
+        </div>
       )}
     </div>
   );

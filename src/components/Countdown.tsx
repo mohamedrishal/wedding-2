@@ -31,10 +31,10 @@ export function Countdown() {
   return (
     <section
       id="countdown"
-      className="relative overflow-hidden bg-navy-radial py-24 sm:py-32"
+      className="relative overflow-hidden py-24 sm:py-32"
     >
       <motion.div
-        className="pointer-events-none absolute left-1/3 top-1/4 h-72 w-72 rounded-full bg-lavender/12 blur-3xl"
+        className="pointer-events-none absolute left-1/3 top-1/4 h-72 w-72 rounded-full bg-navy/5 blur-3xl"
         animate={{ scale: [1, 1.2, 1], opacity: [0.4, 0.7, 0.4] }}
         transition={{ duration: 10, repeat: Infinity }}
       />
@@ -42,8 +42,8 @@ export function Countdown() {
       <div className="relative z-10 mx-auto max-w-5xl px-5 sm:px-8">
         <SectionHeading
           eyebrow="Counting Down"
-          title="The Celebration Begins In"
-          accent="dark"
+          title="Until the Wedding"
+          accent="light"
         />
 
         <div className="mt-14 grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-4">
@@ -57,7 +57,7 @@ export function Countdown() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="mt-12 text-center font-display text-xl italic text-lavender-light sm:text-2xl"
+          className="mt-12 text-center font-display text-xl italic text-navy sm:text-2xl"
         >
           {weddingConfig.event.dateLong}
           <span className="mx-3 text-lavender/40">·</span>
@@ -97,7 +97,7 @@ function CountdownCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] }}
-      className="relative rounded-2xl border border-lavender/25 bg-ivory/5 px-4 py-8 text-center backdrop-blur-sm sm:py-10"
+      className="card-soft relative rounded-2xl px-4 py-8 text-center sm:py-10"
     >
       <div className="relative h-16 overflow-hidden sm:h-20">
         <AnimatePresence mode="popLayout">
@@ -107,13 +107,13 @@ function CountdownCard({
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 24, opacity: 0 }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="block font-display text-5xl font-light text-ivory sm:text-7xl"
+            className="block font-display text-5xl font-light text-navy sm:text-7xl"
           >
             {display}
           </motion.span>
         </AnimatePresence>
       </div>
-      <span className="mt-3 block font-label text-[10px] uppercase tracking-luxe text-lavender-light/75">
+      <span className="mt-3 block font-label text-[10px] uppercase tracking-luxe text-blue">
         {label}
       </span>
     </motion.div>

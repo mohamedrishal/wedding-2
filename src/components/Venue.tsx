@@ -19,44 +19,15 @@ export function Venue() {
   };
 
   return (
-    <section id="venue" className="body-texture relative overflow-hidden py-24 sm:py-32">
+    <section id="venue" className="relative overflow-hidden py-24 sm:py-32">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <SectionHeading
           eyebrow="The Location"
-          title="Our Wedding Venue"
+          title="The Wedding Venue"
           subtitle={`${e.venueName} · ${e.venueShort}`}
         />
 
-        <div className="mt-16 grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-14">
-          {/* Static venue photograph — NO animations */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            className="static-venue relative overflow-hidden rounded-3xl border border-lavender/30 shadow-luxe"
-          >
-            <img
-              src={e.venuePhoto}
-              alt={e.venuePhotoAlt}
-              loading="lazy"
-              className="aspect-[4/3] h-full w-full object-cover"
-            />
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-navy/65 to-transparent" />
-            <div className="absolute inset-x-0 bottom-0 px-6 pb-5">
-              <p className="font-script text-3xl text-ivory">{e.venueName}</p>
-              <p className="font-label text-[11px] uppercase tracking-wide2 text-lavender-light/85">
-                {e.venueLine1}
-              </p>
-            </div>
-            <div className="absolute right-4 top-4 rounded-full bg-navy/70 px-3 py-1 backdrop-blur-sm">
-              <span className="font-label text-[9px] uppercase tracking-luxe text-lavender-light">
-                {e.venueLine2}
-              </span>
-            </div>
-          </motion.div>
-
-          {/* Details + actions */}
+        <div className="mx-auto mt-16 max-w-xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -82,7 +53,7 @@ export function Venue() {
             <div className="mt-10 flex flex-col items-center gap-8 sm:flex-row sm:items-start sm:gap-10">
               <div className="flex flex-col items-center">
                 <div className="rounded-2xl border border-lavender/30 bg-ivory-50 p-3 shadow-luxe-sm">
-                  <QRCodeImage value={e.mapsUrl} size={150} dark="#0a1f44" light="#fbfaf7" />
+                  <QRCodeImage value={e.mapsUrl} size={150} dark="#28215F" light="#FFFFFF" />
                 </div>
                 <span className="mt-3 font-label text-[10px] uppercase tracking-luxe text-navy/50">
                   Scan for Directions

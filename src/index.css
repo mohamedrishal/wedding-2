@@ -3,16 +3,16 @@
 @tailwind utilities;
 
 :root {
-  --ivory: #fbfaf7;
-  --ivory-2: #f4f1ea;
-  --navy: #0a1f44;
-  --navy-soft: #1a3157;
-  --lavender: #a89bc9;
-  --lavender-soft: #cfc4e0;
-  --lavender-dark: #7e6ea0;
-  --blue: #5b7fa8;
-  --blue-soft: #9fb8d4;
-  --blue-pale: #d4e2f0;
+  --ivory: #FFFFFF;
+  --ivory-2: #FAF9F6;
+  --navy: #28215F;
+  --navy-soft: #3A3278;
+  --lavender: #4A3F96;
+  --lavender-soft: #E6E3F2;
+  --lavender-dark: #322C72;
+  --blue: #7D90B2;
+  --blue-soft: #AAB8CF;
+  --blue-pale: #E7E9EF;
 }
 
 * {
@@ -34,17 +34,18 @@ body {
 
 /* Soft textured paper background — subtle dot/grain */
 .body-texture {
-  background-color: #fbfaf7;
+  background-color: #FFFFFF;
   background-image:
-    radial-gradient(circle at 15% 20%, rgba(168, 155, 201, 0.06) 0%, transparent 35%),
-    radial-gradient(circle at 85% 60%, rgba(91, 127, 168, 0.05) 0%, transparent 38%),
-    radial-gradient(circle at 50% 90%, rgba(168, 155, 201, 0.04) 0%, transparent 40%),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.04 0 0 0 0 0.12 0 0 0 0 0.27 0 0 0 0.022 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    radial-gradient(circle at 8% 10%, rgba(170, 184, 207, 0.2) 0%, transparent 28%),
+    radial-gradient(circle at 92% 86%, rgba(195, 189, 213, 0.22) 0%, transparent 32%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.08 0 0 0 0 0.2 0 0 0 0.028 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* Fonts */
+/* Fonts — Cinzel for labels, Cormorant for names, Amiri for Arabic */
 .font-script {
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Dancing Script', 'Great Vibes', cursive;
+  font-weight: 600;
+  font-style: normal;
 }
 .font-display {
   font-family: 'Playfair Display', Georgia, serif;
@@ -53,7 +54,12 @@ body {
   font-family: 'Lora', Georgia, serif;
 }
 .font-label {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+.font-arabic {
+  font-family: 'Amiri', 'Noto Naskh Arabic', serif;
+  font-weight: 700;
+  line-height: 1.9;
 }
 
 /* Custom scrollbar */
@@ -61,7 +67,7 @@ body {
   width: 9px;
 }
 ::-webkit-scrollbar-track {
-  background: #f0ece4;
+  background: #E7E9EF;
 }
 ::-webkit-scrollbar-thumb {
   background: var(--lavender);
@@ -72,8 +78,8 @@ body {
 }
 
 ::selection {
-  background: rgba(168, 155, 201, 0.3);
-  color: #0a1f44;
+  background: rgba(74, 63, 150, 0.18);
+  color: #28215F;
 }
 
 /* Letter spacing helpers */
@@ -89,7 +95,7 @@ body {
 
 /* Soft shimmer for script text on dark */
 .text-lavender-shimmer {
-  background: linear-gradient(110deg, #a89bc9 0%, #e4dcf0 25%, #a89bc9 50%, #cfc4e0 75%, #a89bc9 100%);
+  background: linear-gradient(110deg, #C3BDD5 0%, #FFFFFF 28%, #4A3F96 52%, #F4F2FA 74%, #AAB8CF 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
@@ -97,7 +103,7 @@ body {
   animation: shimmer 7s linear infinite;
 }
 .text-blue-shimmer {
-  background: linear-gradient(110deg, #5b7fa8 0%, #bcd3ec 25%, #5b7fa8 50%, #9fb8d4 75%, #5b7fa8 100%);
+  background: linear-gradient(110deg, #3E4E86 0%, #E8EEF8 25%, #3E4E86 50%, #B7C2DC 75%, #3E4E86 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
@@ -153,10 +159,50 @@ body {
   mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
 }
 
+.gold-mote {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: #AAB8CF;
+  box-shadow: 0 0 10px rgba(170, 184, 207, 0.85);
+  animation: mote-float var(--mote-duration, 8s) ease-in-out infinite;
+  animation-delay: var(--mote-delay, 0s);
+}
+
+.seal-halo {
+  animation: halo-spin 24s linear infinite;
+}
+
+@keyframes mote-float {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.2; }
+  50% { transform: translateY(-16px) scale(1.35); opacity: 0.95; }
+}
+
+@keyframes halo-spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gold-mote,
+  .seal-halo {
+    animation: none;
+  }
+}
+
 /* Soft card */
+.card-frame {
+  background-color: #FFFFFF;
+  background-image: url('/backgrounds/card-floral-frame.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
 .card-soft {
-  background: rgba(253, 252, 249, 0.7);
+  background: rgba(255, 252, 248, 0.86);
   backdrop-filter: blur(6px);
-  border: 1px solid rgba(168, 155, 201, 0.25);
-  box-shadow: 0 18px 50px -18px rgba(10, 31, 68, 0.18);
+  border: 1px solid rgba(170, 184, 207, 0.85);
+  box-shadow: 0 18px 50px -18px rgba(40, 33, 95, 0.1);
 }

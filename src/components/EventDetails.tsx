@@ -13,12 +13,12 @@ export function EventDetails() {
   ];
 
   return (
-    <section className="body-texture relative overflow-hidden py-24 sm:py-32">
+    <section className="relative overflow-hidden py-24 sm:py-32">
       <div className="mx-auto max-w-5xl px-5 sm:px-8">
         <SectionHeading
           eyebrow="Join Us"
-          title="Wedding Celebration"
-          subtitle="We look forward to welcoming you on our special day."
+          title="The Wedding"
+          subtitle="We look forward to welcoming you, and to your duas on our special day."
         />
 
         <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
