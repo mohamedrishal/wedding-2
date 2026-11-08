@@ -1,0 +1,77 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  theme: {
+    extend: {
+      colors: {
+        ivory: {
+          DEFAULT: '#fbfaf7',
+          50: '#fdfcf9',
+          100: '#f7f4ee',
+          200: '#f0ece4',
+          300: '#e6dfd2',
+        },
+        navy: {
+          DEFAULT: '#0a1f44',
+          50: '#e7ebf2',
+          100: '#c5cfe0',
+          200: '#8fa0bf',
+          300: '#6a82a8',
+          400: '#3a527e',
+          500: '#1a3157',
+          600: '#0e2750',
+          700: '#0a1f44',
+          800: '#071733',
+          900: '#050f24',
+        },
+        lavender: {
+          DEFAULT: '#a89bc9',
+          50: '#f4f1fa',
+          100: '#e9e3f3',
+          200: '#d4c9e8',
+          300: '#cfc4e0',
+          400: '#b9a9d4',
+          500: '#a89bc9',
+          600: '#8a7ab0',
+          700: '#7e6ea0',
+          800: '#5f5378',
+          900: '#403850',
+        },
+        blue: {
+          DEFAULT: '#5b7fa8',
+          50: '#eef3f9',
+          100: '#dbe7f1',
+          200: '#bcd3ec',
+          300: '#9fb8d4',
+          400: '#7a9cbe',
+          500: '#5b7fa8',
+          600: '#42628a',
+          700: '#34506e',
+          800: '#243a52',
+          900: '#162538',
+        },
+      },
+      fontFamily: {
+        script: ['"Great Vibes"', 'cursive'],
+        display: ['"Playfair Display"', 'Georgia', 'serif'],
+        serif: ['Lora', 'Georgia', 'serif'],
+        label: ['"Playfair Display"', 'Georgia', 'serif'],
+      },
+      letterSpacing: {
+        luxe: '0.3em',
+        wide2: '0.18em',
+        wide3: '0.12em',
+      },
+      boxShadow: {
+        luxe: '0 30px 80px -20px rgba(10,31,68,0.22)',
+        'luxe-sm': '0 12px 40px -12px rgba(10,31,68,0.16)',
+        floral: '0 0 40px rgba(168,155,201,0.2)',
+      },
+      backgroundImage: {
+        'navy-radial': 'radial-gradient(circle at 50% 18%, #1a3157 0%, #0a1f44 55%, #050f24 100%)',
+        'ivory-gradient': 'linear-gradient(180deg, #fdfcf9 0%, #f7f4ee 100%)',
+      },
+    },
+  },
+  plugins: [],
+};
