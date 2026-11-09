@@ -113,19 +113,21 @@ export function Invitation() {
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden px-10 py-20 text-center sm:px-16 sm:py-28">
+    <footer className="relative overflow-hidden px-6 py-20 text-center sm:px-16 sm:py-28">
       <div className="relative z-10 mx-auto max-w-2xl">
-        <p className="font-script text-4xl text-navy sm:text-5xl">
-          Rishal &amp; Amana · Rinsha &amp; Rafeeque
+        <p className="font-script text-[2.45rem] leading-tight text-navy sm:text-5xl md:text-6xl">
+          <span className="block">Rishal &amp; Amana</span>
+          <span className="mt-1 block">Rinsha &amp; Rafeeque</span>
         </p>
-        <div className="mx-auto my-5 h-px w-40 bg-gradient-to-r from-transparent via-lavender to-transparent" />
-        <p className="font-label text-sm uppercase tracking-luxe text-blue">
-          {weddingConfig.event.dateLong} · {weddingConfig.event.venueName}
+        <div className="mx-auto my-6 h-px w-40 bg-gradient-to-r from-transparent via-lavender to-transparent" />
+        <p className="font-label text-base uppercase tracking-wide2 text-blue sm:text-lg">
+          <span className="block">{weddingConfig.event.dateLong}</span>
+          <span className="mt-1.5 block">{weddingConfig.event.venueName}</span>
         </p>
-        <p className="mt-5 font-arabic text-2xl text-navy" lang="ar" dir="rtl">
+        <p className="mt-6 font-arabic text-3xl text-navy" lang="ar" dir="rtl">
           بارك الله لكما
         </p>
-        <p className="mt-2 font-label text-sm uppercase tracking-wide2 text-blue">
+        <p className="mt-2 font-label text-base uppercase tracking-wide2 text-blue">
           With the blessings of Allah
         </p>
       </div>

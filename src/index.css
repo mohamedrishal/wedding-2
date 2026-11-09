@@ -3,16 +3,16 @@
 @tailwind utilities;
 
 :root {
-  --ivory: #FFFFFF;
-  --ivory-2: #FAF9F6;
-  --navy: #28215F;
-  --navy-soft: #3A3278;
-  --lavender: #4A3F96;
-  --lavender-soft: #E6E3F2;
-  --lavender-dark: #322C72;
-  --blue: #7D90B2;
-  --blue-soft: #AAB8CF;
-  --blue-pale: #E7E9EF;
+  --ivory: #F6F0E6;
+  --ivory-2: #FFFBF5;
+  --navy: #6E5424;
+  --navy-soft: #8C6B32;
+  --lavender: #A6843E;
+  --lavender-soft: #F3E2B0;
+  --lavender-dark: #8C6B32;
+  --blue: #C6A15A;
+  --blue-soft: #E4C98A;
+  --blue-pale: #F3E7D4;
 }
 
 * {
@@ -26,22 +26,13 @@ html {
 
 body {
   margin: 0;
-  background-color: var(--ivory);
-  color: var(--navy);
+  background-color: #F6F0E6;
+  color: #6E5424;
   font-family: 'Lora', Georgia, serif;
   overflow-x: hidden;
 }
 
-/* Soft textured paper background — subtle dot/grain */
-.body-texture {
-  background-color: #FFFFFF;
-  background-image:
-    radial-gradient(circle at 8% 10%, rgba(170, 184, 207, 0.2) 0%, transparent 28%),
-    radial-gradient(circle at 92% 86%, rgba(195, 189, 213, 0.22) 0%, transparent 32%),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.08 0 0 0 0 0.2 0 0 0 0.028 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
-/* Fonts — Cinzel for labels, Cormorant for names, Amiri for Arabic */
+/* Fonts */
 .font-script {
   font-family: 'Dancing Script', 'Great Vibes', cursive;
   font-weight: 600;
@@ -67,7 +58,7 @@ body {
   width: 9px;
 }
 ::-webkit-scrollbar-track {
-  background: #E7E9EF;
+  background: #F3E7D4;
 }
 ::-webkit-scrollbar-thumb {
   background: var(--lavender);
@@ -78,8 +69,8 @@ body {
 }
 
 ::selection {
-  background: rgba(74, 63, 150, 0.18);
-  color: #28215F;
+  background: rgba(166, 132, 62, 0.22);
+  color: #6E5424;
 }
 
 /* Letter spacing helpers */
@@ -93,85 +84,15 @@ body {
   letter-spacing: 0.12em;
 }
 
-/* Soft shimmer for script text on dark */
-.text-lavender-shimmer {
-  background: linear-gradient(110deg, #C3BDD5 0%, #FFFFFF 28%, #4A3F96 52%, #F4F2FA 74%, #AAB8CF 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shimmer 7s linear infinite;
-}
-.text-blue-shimmer {
-  background: linear-gradient(110deg, #3E4E86 0%, #E8EEF8 25%, #3E4E86 50%, #B7C2DC 75%, #3E4E86 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shimmer 7s linear infinite;
-}
-
-@keyframes shimmer {
-  to { background-position: 200% center; }
-}
-
-@keyframes float-slow {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-12px) rotate(1.5deg); }
-}
-.animate-float-slow {
-  animation: float-slow 9s ease-in-out infinite;
-}
-
-@keyframes float-soft {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-.animate-float-soft {
-  animation: float-soft 7s ease-in-out infinite;
-}
-
-/* Venue static image – enforced no animation */
-.static-venue {
-  transition: none !important;
-}
-.static-venue img {
-  animation: none !important;
-  transition: none !important;
-}
-
-.no-scrollbar::-webkit-scrollbar { display: none; }
-.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
-/* Subtle entrance for floral side borders */
-@keyframes border-grow {
-  from { opacity: 0; transform: scaleY(0.4); }
-  to { opacity: 1; transform: scaleY(1); }
-}
-.animate-border-grow {
-  animation: border-grow 1.6s ease-out both;
-  transform-origin: top center;
-}
-
-/* Reveal mask for image clips */
-.reveal-mask {
-  -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-  mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-}
-
 .gold-mote {
   position: absolute;
   width: 4px;
   height: 4px;
   border-radius: 999px;
-  background: #AAB8CF;
-  box-shadow: 0 0 10px rgba(170, 184, 207, 0.85);
+  background: #E4C98A;
+  box-shadow: 0 0 10px rgba(228, 201, 138, 0.85);
   animation: mote-float var(--mote-duration, 8s) ease-in-out infinite;
   animation-delay: var(--mote-delay, 0s);
-}
-
-.seal-halo {
-  animation: halo-spin 24s linear infinite;
 }
 
 @keyframes mote-float {
@@ -179,30 +100,44 @@ body {
   50% { transform: translateY(-16px) scale(1.35); opacity: 0.95; }
 }
 
-@keyframes halo-spin {
-  to { transform: rotate(360deg); }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .gold-mote,
-  .seal-halo {
+  .invite-petal {
     animation: none;
   }
 }
 
-/* Soft card */
+/* Soft card — cream paper, gold wash, and a quiet wedding pattern */
 .card-frame {
-  background-color: #FFFFFF;
-  background-image: url('/backgrounds/card-floral-frame.jpg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
+  background-color: #F6F0E6;
+  background-image:
+    radial-gradient(circle at 50% 0%, rgba(255, 248, 230, 0.92), transparent 36%),
+    radial-gradient(circle at 6% 18%, rgba(243, 214, 214, 0.38), transparent 24%),
+    radial-gradient(circle at 96% 84%, rgba(214, 196, 150, 0.3), transparent 26%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cg fill='none' stroke='%23C6A15A' stroke-opacity='0.16' stroke-width='0.7'%3E%3Cpath d='M80 28c10 16 10 26 0 40-10-14-10-24 0-40z'/%3E%3Cpath d='M80 92c10 16 10 26 0 40-10-14-10-24 0-40z'/%3E%3Cpath d='M28 80c16-10 26-10 40 0-14 10-24 10-40 0z'/%3E%3Cpath d='M92 80c16-10 26-10 40 0-14 10-24 10-40 0z'/%3E%3C/g%3E%3Ccircle cx='80' cy='80' r='1.6' fill='%23C6A15A' fill-opacity='0.2'/%3E%3C/svg%3E");
+  background-attachment: scroll;
+  background-size: auto, auto, auto, 160px 160px;
+}
+
+.invite-petal {
+  position: fixed;
+  width: 9px;
+  height: 13px;
+  border-radius: 80% 0 80% 0;
+  background: rgba(198, 161, 90, 0.38);
+  animation: petal-drift var(--petal-duration, 18s) linear infinite;
+  animation-delay: var(--petal-delay, 0s);
+}
+
+@keyframes petal-drift {
+  0% { transform: translateY(-12vh) rotate(0deg); opacity: 0; }
+  12% { opacity: 0.7; }
+  100% { transform: translateY(108vh) rotate(220deg); opacity: 0; }
 }
 
 .card-soft {
-  background: rgba(255, 252, 248, 0.86);
+  background: rgba(255, 251, 245, 0.9);
   backdrop-filter: blur(6px);
-  border: 1px solid rgba(170, 184, 207, 0.85);
-  box-shadow: 0 18px 50px -18px rgba(40, 33, 95, 0.1);
+  border: 1px solid rgba(228, 210, 176, 0.95);
+  box-shadow: 0 18px 50px -18px rgba(110, 84, 36, 0.14);
 }

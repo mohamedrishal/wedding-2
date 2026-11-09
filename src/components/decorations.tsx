@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import type { ReactNode } from 'react';
 
 /* Emerald and gold Islamic ornament system.
    Motifs use currentColor — tint them with Tailwind text-* classes. */
@@ -65,35 +64,6 @@ function Diamond({
   );
 }
 
-/** Geometric corner — arch, crescent, and eight-pointed stars. */
-export function FloralCorner({ className = '' }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 130 130" className={className} fill="none" aria-hidden="true">
-      <path
-        d="M14 116 V62 C14 32 38 16 70 16"
-        stroke="currentColor"
-        strokeWidth="1"
-        opacity="0.55"
-      />
-      <path
-        d="M26 116 V66 C26 42 44 30 70 28"
-        stroke="currentColor"
-        strokeWidth="0.6"
-        opacity="0.35"
-      />
-      <g className="text-lavender">
-        <Crescent cx={78} cy={34} r={11} opacity={0.85} />
-        <Star cx={96} cy={22} r={5} opacity={0.9} />
-      </g>
-      <g className="text-blue">
-        <Star cx={28} cy={28} r={6} opacity={0.7} />
-        <Diamond cx={48} cy={52} r={5} opacity={0.55} />
-        <Star cx={22} cy={58} r={4} opacity={0.5} />
-      </g>
-    </svg>
-  );
-}
-
 /** Horizontal divider: ruled line, diamonds, crescent and star. */
 export function FloralDivider({
   className = '',
@@ -143,46 +113,6 @@ export function DotSeparator({ className = '' }: { className?: string }) {
   );
 }
 
-/** Fixed geometric borders. Hidden below xl so mobile text stays clear. */
-export function SideFloralBorders() {
-  return (
-    <>
-      <div className="pointer-events-none fixed left-0 top-0 z-20 hidden h-screen w-[64px] overflow-hidden xl:block">
-        <div className="animate-border-grow h-full w-full">
-          <SideGeometry side="left" />
-        </div>
-      </div>
-      <div className="pointer-events-none fixed right-0 top-0 z-20 hidden h-screen w-[64px] overflow-hidden xl:block">
-        <div className="animate-border-grow h-full w-full">
-          <SideGeometry side="right" />
-        </div>
-      </div>
-    </>
-  );
-}
-
-function SideGeometry({ side }: { side: 'left' | 'right' }) {
-  return (
-    <svg
-      viewBox="0 0 64 1200"
-      preserveAspectRatio="xMidYMid slice"
-      className="h-full w-full text-lavender"
-      fill="none"
-      style={{ transform: side === 'right' ? 'scaleX(-1)' : undefined }}
-      aria-hidden="true"
-    >
-      <path d="M34 0 V1200" stroke="currentColor" strokeWidth="0.6" opacity="0.35" />
-      <path d="M44 0 V1200" stroke="currentColor" strokeWidth="0.4" opacity="0.2" />
-      {[70, 220, 370, 520, 670, 820, 970, 1120].map((y, i) => (
-        <g key={y}>
-          {i % 2 === 0 ? <Star cx={34} cy={y} r={8} opacity={0.75} /> : <Crescent cx={30} cy={y} r={8} opacity={0.7} />}
-          <Diamond cx={34} cy={y + 70} r={4} opacity={0.4} />
-        </g>
-      ))}
-    </svg>
-  );
-}
-
 /** Mihrab arch, drawn behind a heading. */
 export function MihrabArch({ className = '' }: { className?: string }) {
   return (
@@ -202,72 +132,6 @@ export function MihrabArch({ className = '' }: { className?: string }) {
       <Crescent cx={168} cy={96} r={8} opacity={0.55} />
       <Crescent cx={252} cy={96} r={8} opacity={0.55} />
     </svg>
-  );
-}
-
-/** Gold satin ribbon and bow, matching the printed invitation wrap. */
-export function GoldRibbon({ className = '' }: { className?: string }) {
-  return (
-    <div className={`pointer-events-none absolute inset-x-0 z-[5] ${className}`} aria-hidden="true">
-      <div className="relative h-8 bg-gradient-to-b from-[#f8e7a8] via-[#e2b12a] to-[#b8891c] shadow-[0_10px_24px_rgba(12,28,52,0.28)] sm:h-10">
-        <svg
-          viewBox="0 0 140 90"
-          className="absolute left-[6%] top-1/2 h-[4.5rem] w-[6.5rem] -translate-y-1/2 sm:left-[10%] sm:h-24 sm:w-32"
-        >
-          <path d="M70 46 C48 12 6 20 16 46 C6 72 48 80 70 46" fill="#f6dc78" stroke="#b8891c" strokeWidth="1.2" />
-          <path d="M70 46 C92 12 134 20 124 46 C134 72 92 80 70 46" fill="#e8c14a" stroke="#b8891c" strokeWidth="1.2" />
-          <ellipse cx="70" cy="46" rx="8" ry="7" fill="#f8e7a8" stroke="#8f6a14" strokeWidth="1" />
-          <path d="M64 52 L52 84 L70 64 Z" fill="#e2b12a" />
-          <path d="M76 52 L90 86 L70 64 Z" fill="#c49216" />
-        </svg>
-      </div>
-    </div>
-  );
-}
-
-export function FloralCluster({
-  className = '',
-  size = 120,
-}: {
-  className?: string;
-  size?: number;
-}) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 120 120" className={className} fill="none" aria-hidden="true">
-      <path d="M60 108 C58 78 60 58 60 36" stroke="currentColor" strokeWidth="0.6" opacity="0.35" />
-      <path d="M60 90 C40 78 28 60 22 36" stroke="currentColor" strokeWidth="0.6" opacity="0.3" />
-      <path d="M60 90 C80 78 94 60 100 38" stroke="currentColor" strokeWidth="0.6" opacity="0.3" />
-      <g className="text-lavender">
-        <Star cx={60} cy={36} r={12} opacity={0.85} />
-        <Crescent cx={24} cy={34} r={8} opacity={0.7} />
-        <Crescent cx={98} cy={36} r={8} opacity={0.7} />
-      </g>
-      <g className="text-blue">
-        <Diamond cx={42} cy={62} r={5} opacity={0.55} />
-        <Diamond cx={78} cy={62} r={5} opacity={0.55} />
-        <Star cx={60} cy={84} r={5} opacity={0.5} />
-      </g>
-    </svg>
-  );
-}
-
-export function Monogram({
-  initials = 'R&A',
-  className = '',
-}: {
-  initials?: string;
-  className?: string;
-}) {
-  return (
-    <div className={`relative inline-flex items-center justify-center ${className}`}>
-      <svg viewBox="0 0 80 80" className="absolute inset-0 h-full w-full text-lavender" fill="none" aria-hidden="true">
-        <circle cx="40" cy="40" r="36" stroke="currentColor" strokeWidth="0.7" opacity="0.55" />
-        <circle cx="40" cy="40" r="32" stroke="currentColor" strokeWidth="0.4" opacity="0.3" />
-        <Star cx={40} cy={8} r={3.2} />
-        <Star cx={40} cy={72} r={3.2} />
-      </svg>
-      <span className="font-label text-sm tracking-wide2 text-navy">{initials}</span>
-    </div>
   );
 }
 
@@ -328,29 +192,5 @@ export function SectionHeading({
         </motion.p>
       )}
     </div>
-  );
-}
-
-export function FloralSection({
-  children,
-  className = '',
-  id,
-  clusters = true,
-}: {
-  children: ReactNode;
-  className?: string;
-  id?: string;
-  clusters?: boolean;
-}) {
-  return (
-    <section id={id} className={`body-texture relative overflow-hidden py-24 sm:py-32 ${className}`}>
-      {clusters && (
-        <>
-          <FloralCluster className="pointer-events-none absolute -top-4 left-1/2 -translate-x-1/2 text-lavender/40 sm:left-10 sm:translate-x-0" size={110} />
-          <FloralCluster className="pointer-events-none absolute -bottom-4 right-1/2 translate-x-1/2 rotate-180 text-blue/35 sm:right-10 sm:translate-x-0" size={100} />
-        </>
-      )}
-      <div className="relative z-10">{children}</div>
-    </section>
   );
 }

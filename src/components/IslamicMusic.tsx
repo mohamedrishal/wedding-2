@@ -33,22 +33,14 @@ export function IslamicMusic({ active }: { active: boolean }) {
   return (
     <div className="fixed right-4 top-4 z-[130] sm:right-6 sm:top-6">
       <audio ref={audioRef} src={track.src} loop preload="none" />
-      <div className="flex items-center gap-3 rounded-full bg-navy px-2 py-2 text-ivory shadow-luxe">
-        <button
-          type="button"
-          onClick={toggle}
-          aria-label={playing ? 'Pause wedding nasheed' : 'Play wedding nasheed'}
-          className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-navy transition-transform hover:scale-105"
-        >
-          {playing ? <Pause size={16} /> : <Play size={16} className="ml-0.5" />}
-        </button>
-        <div className="min-w-0 pr-2">
-          <p className="font-label text-[9px] uppercase tracking-luxe text-lavender-light">Song</p>
-          <p className="max-w-[9.5rem] truncate font-serif-body text-sm leading-tight text-ivory">
-            {track.title}
-          </p>
-        </div>
-      </div>
+      <button
+        type="button"
+        onClick={toggle}
+        aria-label={playing ? 'Pause wedding song' : 'Play wedding song'}
+        className="flex h-12 w-12 items-center justify-center rounded-full bg-navy text-ivory shadow-luxe transition-transform hover:scale-105"
+      >
+        {playing ? <Pause size={16} /> : <Play size={16} className="ml-0.5" />}
+      </button>
     </div>
   );
 }

@@ -53,7 +53,7 @@ export function Venue() {
             <div className="mt-10 flex flex-col items-center gap-8 sm:flex-row sm:items-start sm:gap-10">
               <div className="flex flex-col items-center">
                 <div className="rounded-2xl border border-lavender/30 bg-ivory-50 p-3 shadow-luxe-sm">
-                  <QRCodeImage value={e.mapsUrl} size={150} dark="#28215F" light="#FFFFFF" />
+                  <QRCodeImage value={e.mapsUrl} size={150} dark="#6E5424" light="#FFFBF5" />
                 </div>
                 <span className="mt-3 font-label text-[10px] uppercase tracking-luxe text-navy/50">
                   Scan for Directions

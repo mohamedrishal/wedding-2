@@ -71,13 +71,13 @@ export function Hero({ revealed }: { revealed: boolean }) {
           initial={{ opacity: 0, y: 24 }}
           animate={revealed ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
           transition={{ duration: 1, delay: revealed ? 0.45 : 0, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-8 grid grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-8"
+          className="mt-8 grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-8"
         >
           {couples.map((couple) => (
             <div key={couple.id} className="flex flex-col items-center">
-              <p className="font-script text-5xl text-navy sm:text-6xl">{couple.personA.name}</p>
-              <p className="my-1 font-script text-2xl text-blue">weds</p>
-              <p className="font-display text-3xl font-semibold text-lavender sm:text-4xl">{couple.personB.name}</p>
+              <p className="font-script text-[2.35rem] leading-none text-navy sm:text-5xl md:text-6xl">{couple.personA.name}</p>
+              <p className="my-2 font-script text-2xl text-blue">weds</p>
+              <p className="font-display text-3xl font-semibold leading-none text-lavender sm:text-4xl">{couple.personB.name}</p>
             </div>
           ))}
         </motion.div>

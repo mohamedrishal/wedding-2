@@ -37,10 +37,10 @@ export function CoupleSection({ couple, index }: Props) {
             transition={{ duration: 0.9, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
             className="mt-3 font-script text-5xl text-navy sm:text-7xl md:text-8xl"
           >
-            <span className="block">{couple.coupleName.split('&')[0].trim()}</span>
+            <span className="block">{couple.personA.name}</span>
             <span className="my-1 block font-script text-[0.42em] text-blue">weds</span>
             <span className="block font-display text-[0.62em] font-semibold not-italic tracking-wide text-lavender">
-              {couple.coupleName.split('&')[1].trim()}
+              {couple.personB.name}
             </span>
           </motion.h2>
           <motion.div
@@ -79,7 +79,7 @@ function FamilyCard({
       viewport={{ once: true, margin: '-60px' }}
       whileHover={{ y: -8, transition: { duration: 0.35, delay: 0 } }}
       transition={{ duration: 0.9, delay, ease: [0.22, 1, 0.36, 1] }}
-      className="card-soft relative rounded-2xl p-7 text-center transition-shadow duration-500 hover:shadow-[0_24px_50px_-20px_rgba(40,33,95,0.18)] sm:p-9"
+      className="card-soft relative rounded-2xl p-7 text-center transition-shadow duration-500 hover:shadow-[0_24px_50px_-20px_rgba(110,84,36,0.18)] sm:p-9"
     >
       <h3 className="font-script text-3xl text-navy sm:text-4xl">{person.name}</h3>
       <p className="mt-1 font-label text-[10px] uppercase tracking-luxe text-lavender-dark">

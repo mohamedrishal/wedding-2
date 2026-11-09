@@ -7,6 +7,7 @@ import { EventDetails } from '@/components/EventDetails';
 import { Venue } from '@/components/Venue';
 import { Invitation, Footer } from '@/components/Invitation';
 import { IslamicMusic } from '@/components/IslamicMusic';
+import { InvitationBackdrop } from '@/components/InvitationBackdrop';
 import { weddingConfig } from '@/config/wedding';
 
 function App() {
@@ -22,9 +23,10 @@ function App() {
   }, [covered]);
 
   return (
-    <div className="relative min-h-screen bg-white">
-      <div className={revealed ? 'card-frame relative min-h-screen' : 'relative min-h-screen'}>
-          <main className="relative z-10 px-10 sm:px-16 md:px-24">
+    <div className="relative min-h-screen bg-[#F6F0E6]">
+      <div className="card-frame relative min-h-screen">
+          <InvitationBackdrop />
+          <main className="relative z-10 px-6 sm:px-12 md:px-24">
             <Hero revealed={revealed} />
             {weddingConfig.couples.map((c, i) => (
               <CoupleSection key={c.id} couple={c} index={i} />
