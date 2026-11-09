@@ -11,9 +11,8 @@ const HERO_MOTES = [
   { left: '70%', top: '78%', delay: '0.8s', duration: '8.6s' },
 ];
 
-export function Hero() {
-  const c1 = weddingConfig.couples[0];
-  const c2 = weddingConfig.couples[1];
+export function Hero({ revealed }: { revealed: boolean }) {
+  const couples = weddingConfig.couples;
 
   return (
     <section
@@ -50,8 +49,8 @@ export function Hero() {
       <div className="relative z-10 mx-auto max-w-3xl px-6 pt-12 pb-16 text-center">
         <motion.p
           initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.55 }}
+          animate={revealed ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
+          transition={{ duration: 0.9, delay: revealed ? 0.15 : 0 }}
           lang="ar"
           dir="rtl"
           className="font-arabic text-3xl text-navy sm:text-5xl"
@@ -61,49 +60,41 @@ export function Hero() {
 
         <motion.p
           initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.7 }}
+          animate={revealed ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+          transition={{ duration: 0.8, delay: revealed ? 0.3 : 0 }}
           className="mt-3 font-label text-lg italic text-navy sm:text-2xl"
         >
           {weddingConfig.blessing}
         </motion.p>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.1, delay: 0.85, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-6 font-label text-2xl italic leading-none text-navy sm:text-3xl"
-        >
-          Wedding
-          <span className="mt-1 block font-script text-6xl text-navy sm:text-8xl md:text-9xl">
-            Celebration
-          </span>
-        </motion.h1>
-
         <motion.div
-          initial={{ opacity: 0, scaleX: 0 }}
-          animate={{ opacity: 1, scaleX: 1 }}
-          transition={{ duration: 0.9, delay: 1.25 }}
-          className="mt-8 flex justify-center"
+          initial={{ opacity: 0, y: 24 }}
+          animate={revealed ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+          transition={{ duration: 1, delay: revealed ? 0.45 : 0, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-8 grid grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-8"
         >
-          <FloralDivider color="text-lavender" />
+          {couples.map((couple) => (
+            <div key={couple.id} className="flex flex-col items-center">
+              <p className="font-script text-5xl text-navy sm:text-6xl">{couple.personA.name}</p>
+              <p className="my-1 font-script text-2xl text-blue">weds</p>
+              <p className="font-display text-3xl font-semibold text-lavender sm:text-4xl">{couple.personB.name}</p>
+            </div>
+          ))}
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1.45 }}
-          className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center sm:gap-10"
+          initial={{ opacity: 0, scaleX: 0 }}
+          animate={revealed ? { opacity: 1, scaleX: 1 } : { opacity: 0, scaleX: 0 }}
+          transition={{ duration: 0.9, delay: revealed ? 0.7 : 0 }}
+          className="mt-8 flex justify-center"
         >
-          <HeroCouple name={c1.coupleName} />
-          <span className="hidden font-display text-4xl italic text-lavender sm:inline">&amp;</span>
-          <HeroCouple name={c2.coupleName} />
+          <FloralDivider color="text-blue" />
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 1.8 }}
+          animate={revealed ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
+          transition={{ duration: 0.9, delay: revealed ? 0.85 : 0 }}
           className="mt-12 flex flex-col items-center gap-2 sm:flex-row sm:justify-center sm:gap-4"
         >
           <p className="font-display text-2xl italic text-navy sm:text-3xl">
@@ -117,8 +108,8 @@ export function Hero() {
 
         <motion.div
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 2.1 }}
+          animate={revealed ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 1, delay: revealed ? 1.05 : 0 }}
           className="mt-16 flex justify-center"
         >
           <div className="flex flex-col items-center gap-2 text-blue">
@@ -135,10 +126,3 @@ export function Hero() {
   );
 }
 
-function HeroCouple({ name }: { name: string }) {
-  return (
-    <div className="flex flex-col items-center">
-      <span className="font-script text-5xl text-navy sm:text-7xl">{name}</span>
-    </div>
-  );
-}

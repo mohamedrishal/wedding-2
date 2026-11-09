@@ -25,11 +25,10 @@ export const weddingConfig = {
       'And of His signs is that He created for you mates from among yourselves, that you may find tranquillity in them.',
     ref: 'Surah Ar-Rum 30:21',
   },
-  // Royalty-free Arabic wedding instrumental (Pixabay, ikoliks_aj). Streamed.
   music: {
-    title: 'Royal Wedding',
-    artist: 'ikoliks_aj',
-    src: 'https://cdn.pixabay.com/audio/2025/08/26/audio_a3361500cb.mp3',
+    title: 'Nazar Lagi',
+    artist: 'Goldie Sohel & Asees Kaur',
+    src: '/music/nazar-lagi.mp3',
   },
   couples: [
     {

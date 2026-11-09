@@ -4,20 +4,20 @@ import { weddingConfig } from '@/config/wedding';
 
 const track = weddingConfig.music;
 
-/** One wedding nasheed. Starts after the invitation is opened. */
-export function IslamicMusic() {
+/** One wedding song. The button is always visible; playback starts when the envelope opens. */
+export function IslamicMusic({ active }: { active: boolean }) {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [playing, setPlaying] = useState(false);
 
   useEffect(() => {
     const audio = audioRef.current;
-    if (!audio) return;
+    if (!audio || !active) return;
     audio.volume = 0.32;
     audio
       .play()
       .then(() => setPlaying(true))
       .catch(() => setPlaying(false));
-  }, []);
+  }, [active]);
 
   const toggle = () => {
     const audio = audioRef.current;
@@ -31,7 +31,7 @@ export function IslamicMusic() {
   };
 
   return (
-    <div className="fixed bottom-4 right-4 z-[70] sm:bottom-6 sm:right-6">
+    <div className="fixed right-4 top-4 z-[130] sm:right-6 sm:top-6">
       <audio ref={audioRef} src={track.src} loop preload="none" />
       <div className="flex items-center gap-3 rounded-full bg-navy px-2 py-2 text-ivory shadow-luxe">
         <button

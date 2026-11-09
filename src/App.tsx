@@ -11,23 +11,21 @@ import { weddingConfig } from '@/config/wedding';
 
 function App() {
   const [opened, setOpened] = useState(false);
+  const [revealed, setRevealed] = useState(false);
+  const [covered, setCovered] = useState(true);
 
   useEffect(() => {
-    document.body.style.overflow = opened ? '' : 'hidden';
+    document.body.style.overflow = covered ? 'hidden' : '';
     return () => {
       document.body.style.overflow = '';
     };
-  }, [opened]);
+  }, [covered]);
 
   return (
     <div className="relative min-h-screen bg-white">
-      <OpeningScreen onOpen={() => setOpened(true)} />
-
-      {opened && (
-        <div className="card-frame relative min-h-screen">
-          <IslamicMusic />
+      <div className={revealed ? 'card-frame relative min-h-screen' : 'relative min-h-screen'}>
           <main className="relative z-10 px-10 sm:px-16 md:px-24">
-            <Hero />
+            <Hero revealed={revealed} />
             {weddingConfig.couples.map((c, i) => (
               <CoupleSection key={c.id} couple={c} index={i} />
             ))}
@@ -37,8 +35,13 @@ function App() {
             <Invitation />
           </main>
           <Footer />
-        </div>
-      )}
+      </div>
+      <OpeningScreen
+        onOpen={() => setOpened(true)}
+        onReveal={() => setRevealed(true)}
+        onDone={() => setCovered(false)}
+      />
+      <IslamicMusic active={opened} />
     </div>
   );
 }
